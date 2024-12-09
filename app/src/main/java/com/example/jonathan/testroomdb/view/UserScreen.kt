@@ -36,7 +36,7 @@ fun UserScreen(viewModel: UserViewModel) {
         }
         Spacer(modifier = Modifier.height(16.dp))
         Button(onClick = {
-            users = viewModel.fetchUsers()
+            //users = viewModel.fetchUsers()
         }) {
             Text("Load Users")
         }
