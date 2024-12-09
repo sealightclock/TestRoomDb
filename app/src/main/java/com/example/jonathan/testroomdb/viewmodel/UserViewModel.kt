@@ -14,7 +14,7 @@ class UserViewModel(private val database: AppDatabase) : ViewModel() {
         }
     }
 
-    suspend fun fetchUsers(): List<User> {
+    fun fetchUsers(): List<User> {
         return database.userDao().getAllUsers()
     }
 }
