@@ -1,5 +1,6 @@
 package com.example.jonathan.testroomdb.view
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -25,13 +26,18 @@ fun UserScreen(viewModel: UserViewModel) {
     //var users by remember { mutableStateOf(emptyList<User>()) }
     val users by viewModel.users.observeAsState(emptyList())
 
-    Column(Modifier.padding(16.dp)) {
+    Column(
+        Modifier.padding(16.dp),
+        verticalArrangement = Arrangement.Center
+    ) {
+        Text("Please enter user name:")
         BasicTextField(
             value = name,
             onValueChange = { name = it },
             modifier = Modifier.fillMaxWidth().padding(8.dp),
             singleLine = true
         )
+        Text("Please enter user's age:")
         BasicTextField(
             value = age,
             onValueChange = { age = it },
@@ -51,7 +57,7 @@ fun UserScreen(viewModel: UserViewModel) {
         }
         Spacer(modifier = Modifier.height(16.dp))
         users.forEach {
-            Text("${it.name}, ${it.age}")
+            Text("user_${it.id}: Name: ${it.name}, Age: ${it.age}")
         }
     }
 }

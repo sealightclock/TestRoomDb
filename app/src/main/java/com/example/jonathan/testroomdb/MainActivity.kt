@@ -26,5 +26,7 @@ class MainActivity : ComponentActivity() {
 
         // Initialize ViewModel:
         viewModel = UserViewModelFactory(DatabaseBuilder.getInstance(this)).create(UserViewModel::class.java)
+        // Display initial users from the database:
+        viewModel.fetchUsers()
     }
 }
