@@ -63,4 +63,7 @@ dependencies {
     implementation(libs.room.runtime)
     implementation(libs.room.ktx)
     kapt(libs.room.compiler)
+
+    // To use LiveData.observeAsState() in Composable:
+    implementation(libs.androidx.runtime.livedata)
 }
