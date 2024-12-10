@@ -3,7 +3,8 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
 
-    kotlin("kapt") // Add kapt for annotation processing
+    // From kapt to ksp:
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -62,7 +63,9 @@ dependencies {
 
     implementation(libs.room.runtime)
     implementation(libs.room.ktx)
-    kapt(libs.room.compiler)
+
+    // From kapt to ksp:
+    ksp(libs.room.compiler)
 
     // To use LiveData.observeAsState() in Composable:
     implementation(libs.androidx.runtime.livedata)
